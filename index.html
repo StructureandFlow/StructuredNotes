@@ -53,7 +53,7 @@ main{flex:1;display:flex;flex-direction:column;padding:22px 26px;min-width:0}
 #title{flex:1;min-width:0;font-size:28px;font-weight:700;letter-spacing:-.5px;border:0;background:transparent;padding:4px 0}
 #star{font-size:20px;padding:4px 10px;color:var(--mute)}
 #star.on{color:var(--star)}
-#fmt{display:flex;gap:6px;margin-bottom:12px;align-items:center}
+#fmt{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;align-items:center}
 #fmt button{width:36px;padding:5px 0}
 #sv{margin-left:auto;color:var(--mute);font-size:13px}
 #ed{flex:1;overflow:auto;line-height:1.7;font-size:17px;padding:4px 2px;border:0}
@@ -84,7 +84,7 @@ main{flex:1;display:flex;flex-direction:column;padding:22px 26px;min-width:0}
 #mtgs .x{border:0;background:transparent;padding:0 6px;color:var(--mute)}
 .mnotes{min-height:140px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);line-height:1.6;outline:none}
 .mnotes:focus-visible{outline:2px solid var(--acc)}
-.mfmt{display:flex;gap:6px}
+.mfmt{display:flex;flex-wrap:wrap;gap:6px}
 .mfmt button{width:36px;padding:5px 0}
 .addrow{display:flex;gap:8px}
 .addrow input{flex:1}
@@ -162,7 +162,7 @@ main{flex:1;display:flex;flex-direction:column;padding:22px 26px;min-width:0}
           <button data-c="bold" title="Bold"><b>B</b></button>
           <button data-c="italic" title="Italic"><i>I</i></button>
           <button data-c="underline" title="Underline"><u>U</u></button><button data-c="insertUnorderedList" title="Bullet list">•</button><button data-c="indent" title="Sub-bullet (move in)">→</button><button data-c="outdent" title="Move back out">←</button>
-          <button id="cb" title="Checkbox">☐</button><button id="tbl" title="Table">▦</button><button class="sw" data-k="#e53935" style="--c:#e53935" title="Red text"></button><button class="sw" data-k="#f2b800" style="--c:#f2b800" title="Yellow text"></button><button class="sw" data-k="#2563eb" style="--c:#2563eb" title="Blue text"></button><button class="sw rs" data-k="reset" title="Default text color">A</button>
+          <button id="cb" title="Checkbox">☐</button><button id="tbl" title="Table">▦</button><button class="sw" data-k="#e53935" style="--c:#e53935" title="Red text"></button><button class="sw" data-k="#fb8c00" style="--c:#fb8c00" title="Orange text"></button><button class="sw" data-k="#f2b800" style="--c:#f2b800" title="Yellow text"></button><button class="sw" data-k="#2e9e4f" style="--c:#2e9e4f" title="Green text"></button><button class="sw" data-k="#0f9d9a" style="--c:#0f9d9a" title="Teal text"></button><button class="sw" data-k="#2563eb" style="--c:#2563eb" title="Blue text"></button><button class="sw" data-k="#7c3aed" style="--c:#7c3aed" title="Purple text"></button><button class="sw" data-k="#e91e8c" style="--c:#e91e8c" title="Pink text"></button><button class="sw" data-k="#8d5a2b" style="--c:#8d5a2b" title="Brown text"></button><button class="sw" data-k="#6b7280" style="--c:#6b7280" title="Gray text"></button><button class="sw" data-k="#000000" style="--c:#000000" title="Black text"></button><button class="sw rs" data-k="reset" title="Default text color">A</button>
           <span id="sv"></span>
         </div>
         <div class="tbar" id="tb1" hidden><button data-t="ar">+ Row</button><button data-t="ac">+ Column</button><button data-t="dr">− Row</button><button data-t="dc">− Column</button><button data-t="dt">Delete table</button></div>
@@ -178,13 +178,10 @@ main{flex:1;display:flex;flex-direction:column;padding:22px 26px;min-width:0}
 <script type="module">
 /* ====== PASTE YOUR FIREBASE SETTINGS HERE ====== */
 const firebaseConfig = {
-  apiKey: "AIzaSyAouNQibnrdGw_s5jk9mP_xmdgtRt5L-xU",
-  authDomain: "structurednotes-de201.firebaseapp.com",
-  projectId: "structurednotes-de201",
-  storageBucket: "structurednotes-de201.firebasestorage.app",
-  messagingSenderId: "628598357846",
-  appId: "1:628598357846:web:210014a98bc2dffcaba0f7",
-  measurementId: "G-1K22J5QFC4"
+  apiKey: "PASTE_HERE",
+  authDomain: "PASTE_HERE",
+  projectId: "PASTE_HERE",
+  appId: "PASTE_HERE"
 };
 /* =============================================== */
 
@@ -474,7 +471,7 @@ function mtgs(){
   <div class="fld"><label>Attendees</label><input data-f="attendees" value="${esc(m.attendees||"")}" placeholder="Who was there"></div>
   <div class="fld"><label>Topic</label><input data-f="topic" value="${esc(m.topic||"")}"></div>
   <div class="fld"><label>Purpose</label><textarea data-f="purpose" rows="3">${esc(m.purpose||"")}</textarea></div>
-  <div class="fld"><label>Notes</label><div class="mfmt"><button data-mc="bold" title="Bold"><b>B</b></button><button data-mc="italic" title="Italic"><i>I</i></button><button data-mc="underline" title="Underline"><u>U</u></button><button data-mc="insertUnorderedList" title="Bullet list">•</button><button data-mc="indent" title="Sub-bullet (move in)">→</button><button data-mc="outdent" title="Move back out">←</button><button id="mcb" title="Checkbox">☐</button><button id="mtbl" title="Table">▦</button><button class="sw" data-k="#e53935" style="--c:#e53935" title="Red text"></button><button class="sw" data-k="#f2b800" style="--c:#f2b800" title="Yellow text"></button><button class="sw" data-k="#2563eb" style="--c:#2563eb" title="Blue text"></button><button class="sw rs" data-k="reset" title="Default text color">A</button></div><div class="tbar" id="tb2" hidden><button data-t="ar">+ Row</button><button data-t="ac">+ Column</button><button data-t="dr">− Row</button><button data-t="dc">− Column</button><button data-t="dt">Delete table</button></div><div id="mnotes" class="mnotes" contenteditable="true"></div></div>
+  <div class="fld"><label>Notes</label><div class="mfmt"><button data-mc="bold" title="Bold"><b>B</b></button><button data-mc="italic" title="Italic"><i>I</i></button><button data-mc="underline" title="Underline"><u>U</u></button><button data-mc="insertUnorderedList" title="Bullet list">•</button><button data-mc="indent" title="Sub-bullet (move in)">→</button><button data-mc="outdent" title="Move back out">←</button><button id="mcb" title="Checkbox">☐</button><button id="mtbl" title="Table">▦</button><button class="sw" data-k="#e53935" style="--c:#e53935" title="Red text"></button><button class="sw" data-k="#fb8c00" style="--c:#fb8c00" title="Orange text"></button><button class="sw" data-k="#f2b800" style="--c:#f2b800" title="Yellow text"></button><button class="sw" data-k="#2e9e4f" style="--c:#2e9e4f" title="Green text"></button><button class="sw" data-k="#0f9d9a" style="--c:#0f9d9a" title="Teal text"></button><button class="sw" data-k="#2563eb" style="--c:#2563eb" title="Blue text"></button><button class="sw" data-k="#7c3aed" style="--c:#7c3aed" title="Purple text"></button><button class="sw" data-k="#e91e8c" style="--c:#e91e8c" title="Pink text"></button><button class="sw" data-k="#8d5a2b" style="--c:#8d5a2b" title="Brown text"></button><button class="sw" data-k="#6b7280" style="--c:#6b7280" title="Gray text"></button><button class="sw" data-k="#000000" style="--c:#000000" title="Black text"></button><button class="sw rs" data-k="reset" title="Default text color">A</button></div><div class="tbar" id="tb2" hidden><button data-t="ar">+ Row</button><button data-t="ac">+ Column</button><button data-t="dr">− Row</button><button data-t="dc">− Column</button><button data-t="dt">Delete table</button></div><div id="mnotes" class="mnotes" contenteditable="true"></div></div>
   <div class="fld"><label>Action items</label><div id="mac"></div><div class="addrow"><input id="mai" placeholder="Add an action item"><button id="mad">Add</button></div></div>
   <div><button id="mdel">Delete this meeting</button></div>`:"");
   if(m)$("#mnotes").innerHTML=m.notes||"";
@@ -584,7 +581,7 @@ function mmDraw(){
 }
 function mmView(){
   const it=byId(cur);
-  $("#mmap").innerHTML=`<div class="mh"><button id="xb">← Back to note</button><b>Mind map: ${esc(it.name||"Untitled")}</b><button class="fs" title="Full screen writing"><span class="a">⛶</span><span class="b">✕ Exit</span></button></div><div class="mh"><button id="xm"${multi?' class="go"':""}>Select several${multi?": on":""}</button>${multi?'<button id="xl">Relate</button><button id="xu">Unrelate</button>':'<button class="go" id="xa">+ Branch</button><button id="xr">Rename</button><button id="xd">Delete</button>'}<span class="hint">${multi?"Tap ideas to select them, then tap Relate.":"Tap an idea to select it."}</span></div><div class="mh"><span class="hint">Lines:</span><button id="xs" title="Choose what the colors change">${lall?"All lines":"One line"}</button><button class="sw" data-lk="#e53935" style="--c:#e53935" title="Red"></button><button class="sw" data-lk="#f2b800" style="--c:#f2b800" title="Yellow"></button><button class="sw" data-lk="#2563eb" style="--c:#2563eb" title="Blue"></button><button class="sw rs" data-lk="reset" title="Normal color">A</button><span class="hint">${lall?"Colors change every line.":"Tap a line, then pick a color."}</span></div><div id="mmv"></div>`;
+  $("#mmap").innerHTML=`<div class="mh"><button id="xb">← Back to note</button><b>Mind map: ${esc(it.name||"Untitled")}</b><button class="fs" title="Full screen writing"><span class="a">⛶</span><span class="b">✕ Exit</span></button></div><div class="mh"><button id="xm"${multi?' class="go"':""}>Select several${multi?": on":""}</button>${multi?'<button id="xl">Relate</button><button id="xu">Unrelate</button>':'<button class="go" id="xa">+ Branch</button><button id="xr">Rename</button><button id="xd">Delete</button>'}<span class="hint">${multi?"Tap ideas to select them, then tap Relate.":"Tap an idea to select it."}</span></div><div class="mh"><span class="hint">Lines:</span><button id="xs" title="Choose what the colors change">${lall?"All lines":"One line"}</button><button class="sw" data-lk="#e53935" style="--c:#e53935" title="Red"></button><button class="sw" data-lk="#fb8c00" style="--c:#fb8c00" title="Orange"></button><button class="sw" data-lk="#f2b800" style="--c:#f2b800" title="Yellow"></button><button class="sw" data-lk="#2e9e4f" style="--c:#2e9e4f" title="Green"></button><button class="sw" data-lk="#0f9d9a" style="--c:#0f9d9a" title="Teal"></button><button class="sw" data-lk="#2563eb" style="--c:#2563eb" title="Blue"></button><button class="sw" data-lk="#7c3aed" style="--c:#7c3aed" title="Purple"></button><button class="sw" data-lk="#e91e8c" style="--c:#e91e8c" title="Pink"></button><button class="sw" data-lk="#8d5a2b" style="--c:#8d5a2b" title="Brown"></button><button class="sw" data-lk="#6b7280" style="--c:#6b7280" title="Gray"></button><button class="sw" data-lk="#000000" style="--c:#000000" title="Black"></button><button class="sw rs" data-lk="reset" title="Normal color">A</button><span class="hint">${lall?"Colors change every line.":"Tap a line, then pick a color."}</span></div><div id="mmv"></div>`;
   mmDraw();
 }
 $("#mm").onclick=()=>{
